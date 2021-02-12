@@ -8,7 +8,7 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0; 
     font-family: 'Montserrat', sans-serif;
     background-color: #1d1d1d;
 }
@@ -25,7 +25,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    
+    position: fixed;
     width: 100%;
     background-color: transparent;
 }
@@ -49,6 +49,15 @@ nav ul li a{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: white;
 }
+.header div{
+    width: 25px;
+    height: 5px;
+    color: white;
+    margin: 5px;
+}
+.header{
+    display: none;
+}
 
 /* End Of Navigation */
 
@@ -71,10 +80,8 @@ nav ul li a{
     left: 50%;
     transform: translate(-50%,-50%);
 }
-.explore{
-    text-align: center;
-}
-.explore input[type="submit"]{
+
+.button{
     border: 2px solid #ddd;
     text-align: center;
     padding: 15px 40px;
@@ -87,6 +94,16 @@ nav ul li a{
     letter-spacing: 1.2px;
     font-weight: 700;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: none;
+    align-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.button:hover{
+    background-color: turquoise;
+    border: 2px solid turquoise;
+    color: black;
 }
 .content p{
     color: white;
@@ -153,18 +170,88 @@ textarea{
 
 /* Gallery Page */
 
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
 }
 .column{
-    flex: 50%;
-    padding: 0 4px;
+    float: left;
+    width: 100%;
 }
-.column img{
-    margin-top: 8px;
-    vertical-align: middle;
+.galore{
+    padding: 60px;
+    text-align: center;
 }
 
+
 /* End Of Gallery Page */
+
+/*----Responsiveness----*/
+
+@media only screen and (max-width:1024px){
+    nav ul{
+        width: 100%;
+    }
+    .nav-links{
+        width: 100%;
+    }
+    .nav-links li{
+        padding: 0;
+    }
+}
+@media only screen and (max-width:880px){
+    body{
+        overflow-x: hidden;
+    }
+    nav ul{
+        position: absolute;
+        left: 0;
+        height: 80vh;
+        top: 8vh;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translate(100%);
+        transition: transform 0.5s ease-in;
+    }
+    nav{
+        display: flex;
+    }
+    .header{
+        display: block;
+        cursor: pointer;
+    }
+    .header div{
+        background-color: #ddd;
+        width: 25px;
+        height: 2px;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+    .nav-links{
+        display: flex;
+        flex-direction: row;
+        top: 50vh;
+    }
+}
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}

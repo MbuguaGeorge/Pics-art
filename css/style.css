@@ -42,9 +42,6 @@ nav ul li a{
     font-family: 'Times New Roman', Times, serif;
     color: whitesmoke;
 }
-.nav-links{
-    width: 8%;
-}
 .logo h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: white;
@@ -74,12 +71,6 @@ nav ul li a{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     letter-spacing: 2px;
 }
-.content{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
 
 .button{
     border: 2px solid #ddd;
@@ -96,9 +87,13 @@ nav ul li a{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
     align-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,-50%);
+}
+.content{
+    height: 50rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .button:hover{
     background-color: turquoise;
@@ -171,13 +166,15 @@ textarea{
 /* Gallery Page */
 
 .row:after{
-    content: "";
     display: table;
-    clear: both;
+    
 }
 .column{
     float: left;
     width: 100%;
+}
+.column img{
+    width: 25%;
 }
 .galore{
     padding: 60px;
@@ -193,23 +190,14 @@ textarea{
     nav ul{
         width: 100%;
     }
-    .nav-links{
-        width: 100%;
-    }
-    .nav-links li{
-        padding: 0;
-    }
 }
 @media only screen and (max-width:880px){
-    body{
-        overflow-x: hidden;
-    }
     nav ul{
         position: absolute;
         left: 0;
-        height: 80vh;
-        top: 8vh;
-        background-color: black;
+        height: 100vh;
+        top: 0;
+        background-color: #1d1d1d;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -226,15 +214,21 @@ textarea{
     .header div{
         background-color: #ddd;
         width: 25px;
-        height: 2px;
+        height: 3px;
         margin: 5px;
         transition: all 0.3s ease;
     }
-    .nav-links{
-        display: flex;
-        flex-direction: row;
-        top: 50vh;
+    .column img{
+        display: block;
+        padding: 3px;
+        width: 100%;
     }
+    .column{
+        margin-top: 20px;
+    }
+}
+.nav-active{
+    transform: translateX(0%);
 }
 @keyframes navLinkFade{
     from{

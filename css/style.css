@@ -167,7 +167,6 @@ textarea{
 
 .row:after{
     display: table;
-    
 }
 .column{
     float: left;
